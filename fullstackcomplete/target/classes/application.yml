@@ -9,6 +9,9 @@ spring:
     default:
       properties:
         hibernate:
+          jdbc:
+            lob:
+              non_contextual_creation: true
           physical_naming_strategy: "io.micronaut.data.hibernate.naming.DefaultPhysicalNamingStrategy"
     show-sql: true
     hibernate:
@@ -17,7 +20,10 @@ spring:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
-
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
   cors:
     allowed-origins: http://localhost:3000
   mail:
